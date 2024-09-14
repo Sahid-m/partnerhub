@@ -7,7 +7,8 @@ import { useUser } from "@auth0/nextjs-auth0/client";
 import { CheckCircle, Code, Github, MessageSquare, Users } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import Navbar from "./Navbar";
+import GlassNavbar from "./Navbar";
+import NavbarLanding from "./Navbar-landing";
 import Footer from "./footer";
 
 export default function LandingPage() {
@@ -21,7 +22,8 @@ export default function LandingPage() {
 
     return (
         <div className="flex flex-col min-h-screen">
-            <Navbar />
+            <NavbarLanding />
+            {/* <GlassNavbar /> */}
             <main className="flex-1">
                 <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48">
                     <div className="container px-4 md:px-6">
