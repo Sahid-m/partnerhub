@@ -7,11 +7,12 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/
 
 export default function ProjectCard({ project }: {
     project: {
+        owner: string;
         name: string;
         description: string;
         languages: string[];
         stars: number | undefined;
-        forks: number | undefined;
+        fork: boolean;
         url: string;
     }
 }) {
@@ -23,12 +24,12 @@ export default function ProjectCard({ project }: {
                         {project.name}
                     </CardTitle>
                     <div className="flex items-center space-x-2">
-                        {project.forks && (
+                        {project.fork ? (
                             <Badge variant="secondary" className="bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-100">
                                 <GitFork className="w-3 h-3 mr-1" />
                                 Fork
                             </Badge>
-                        )}
+                        ) : ""}
                         <Badge variant="secondary" className="bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-100">
                             <Star className="w-3 h-3 mr-1" />
                             {project.stars}

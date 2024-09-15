@@ -38,9 +38,11 @@ export default function NavbarLanding() {
                     </Link>
                 </nav>
                 {
-                    user ? <>
-                        <Button className='mx-5' onClick={() => { router.push('/api/auth/logout') }}>Logout</Button>
-                    </> : <Button className='mx-5' onClick={() => { router.push('/api/auth/login') }}>
+                    user ? <div className='space-x-5 mx-5'>
+
+                        <Button className='' onClick={() => { router.push('/profile') }}>Profile</Button>
+                        <Button className='' onClick={() => { router.push('/api/auth/logout') }}>Logout</Button>
+                    </div> : <Button className='mx-5' onClick={() => { router.push('/api/auth/login') }}>
                         <Github className="mr-2 h-3 w-3" />
                         Login
                     </Button>

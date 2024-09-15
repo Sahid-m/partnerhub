@@ -1,6 +1,37 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
+  safelist: [
+    "bg-blue-500", // TypeScript
+    "bg-yellow-400", // JavaScript
+    "bg-green-500", // Python
+    "bg-cyan-500", // Go
+    "bg-orange-500", // Rust
+    "bg-red-500", // Java
+    "bg-red-400", // Ruby
+    "bg-gray-500", // C
+    "bg-blue-700", // C++
+    "bg-blue-900", // HTML
+    "bg-blue-600", // CSS
+    "bg-blue-300", // Dockerfile
+    "bg-gray-700", // Shell
+    "bg-purple-500", // PHP
+    "bg-orange-400", // Swift
+    "bg-purple-600", // Kotlin
+    "bg-blue-400", // Dart
+    "bg-pink-400", // Perl
+    "bg-indigo-400", // Lua
+    "bg-purple-700", // Elixir
+    "bg-red-300", // Haskell
+    "bg-teal-400", // R
+    "bg-red-600", // Scala
+    "bg-gray-800", // Solidity
+    "bg-gray-400", // YAML
+    "bg-green-300", // JSON
+    "bg-purple-300", // SQL
+    "bg-gray-300", // Default
+  ],
+
   darkMode: ["class"],
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",

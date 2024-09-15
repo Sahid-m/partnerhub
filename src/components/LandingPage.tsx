@@ -38,9 +38,8 @@ export default function LandingPage() {
                             </div>
                             <div className="space-x-4">
                                 {user ? <>
-                                    <Button onClick={() => router.push('/explore')}>
-
-                                        Explore
+                                    <Button onClick={() => router.push('/profile')}>
+                                        Profile
                                     </Button></> : <>
                                     <Button onClick={() => router.push('/api/auth/login')}>
                                         <Github className="mr-2 h-4 w-4" />
@@ -48,7 +47,13 @@ export default function LandingPage() {
                                     </Button>
                                 </>}
 
-                                <Button variant="outline">Learn More</Button>
+                                {
+                                    user ? <>
+                                        <Button onClick={() => router.push('/explore-projects')}>
+                                            Explore Projects
+                                        </Button>
+                                    </> : ""
+                                }
                             </div>
                         </div>
                     </div>
@@ -120,7 +125,7 @@ export default function LandingPage() {
                                             alt="User avatar"
                                             className="rounded-full"
                                             height="40"
-                                            src="/placeholder.svg?height=40&width=40"
+                                            src="https://avatars.githubusercontent.com/u/96366284?v=4"
                                             style={{
                                                 aspectRatio: "40/40",
                                                 objectFit: "cover",
@@ -128,7 +133,7 @@ export default function LandingPage() {
                                             width="40"
                                         />
                                         <div className="space-y-1">
-                                            <h3 className="font-bold">Alice Developer</h3>
+                                            <h3 className="font-bold">Sahid M</h3>
                                             <p className="text-sm text-gray-500 dark:text-gray-400">Full Stack Developer</p>
                                         </div>
                                     </div>
@@ -145,7 +150,7 @@ export default function LandingPage() {
                                             alt="User avatar"
                                             className="rounded-full"
                                             height="40"
-                                            src="/placeholder.svg?height=40&width=40"
+                                            src="https://avatars.githubusercontent.com/u/85573908?v=4"
                                             style={{
                                                 aspectRatio: "40/40",
                                                 objectFit: "cover",
@@ -153,8 +158,8 @@ export default function LandingPage() {
                                             width="40"
                                         />
                                         <div className="space-y-1">
-                                            <h3 className="font-bold">Bob Coder</h3>
-                                            <p className="text-sm text-gray-500 dark:text-gray-400">Frontend Specialist</p>
+                                            <h3 className="font-bold">Alan K.</h3>
+                                            <p className="text-sm text-gray-500 dark:text-gray-400">Rust Enthusiast</p>
                                         </div>
                                     </div>
                                     <p className="mt-4 text-gray-500 dark:text-gray-400">
@@ -175,15 +180,22 @@ export default function LandingPage() {
                                 </p>
                             </div>
                             {user ? <>
-                                <Button onClick={() => router.push('/explore')}>
-
-                                    Explore
+                                <Button onClick={() => router.push('/profile')}>
+                                    Profile
                                 </Button></> : <>
                                 <Button onClick={() => router.push('/api/auth/login')}>
                                     <Github className="mr-2 h-4 w-4" />
                                     Sign Up with GitHub
                                 </Button>
                             </>}
+
+                            {
+                                user ? <>
+                                    <Button onClick={() => router.push('/explore-projects')}>
+                                        Explore Projects
+                                    </Button>
+                                </> : ""
+                            }
                         </div>
                     </div>
                 </section>

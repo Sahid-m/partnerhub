@@ -24,10 +24,10 @@ export default function GlassNavbar() {
                 </Link>
                 <div className="flex items-center space-x-4">
                     <ThemeToggle />
-                    <Link href="/projects" className="text-foreground hover:text-primary">
-                        Projects
+                    <Link href="/explore-projects" className="text-foreground hover:text-primary">
+                        Explore Projects
                     </Link>
-                    <Link href="/partners" className="text-foreground hover:text-primary">
+                    <Link href="/find-devs" className="text-foreground hover:text-primary">
                         Partners
                     </Link>
                     <Link href="/profile" className="text-foreground hover:text-primary">

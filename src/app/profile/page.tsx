@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area"
 import { getGitHubUserInfo } from "@/lib/user.actions"
+import { calculateLanguageUsage } from "@/lib/utilitys"
 import { getSession } from "@auth0/nextjs-auth0"
 import { Calendar, Github, Mail, MapPin } from "lucide-react"
 import Link from "next/link"
@@ -48,7 +49,11 @@ export default async function UserProfile() {
     if (!session) {
         redirect('/');
     }
+    console.log(session.user.nickname)
     const { repos, user } = await getGitHubUserInfo(session.user.nickname);
+    console.log(user);
+    const languageUsage = calculateLanguageUsage(repos);
+    console.log(languageUsage);
 
     return (
         <>
@@ -79,7 +84,7 @@ export default async function UserProfile() {
                                     </div>
                                     <div className="flex items-center">
                                         <Calendar className="w-4 h-4 mr-2 text-purple-500 dark:text-purple-400" />
-                                        <span>Joined {user.joinedAt}</span>
+                                        <span>Joined {new Date(user.joinedAt).getFullYear()}</span>
                                     </div>
                                 </div>
                                 <Link href={user.profileUrl}>
@@ -87,42 +92,15 @@ export default async function UserProfile() {
                                         <Github className="mr-2 h-4 w-4" /> View GitHub Profile
                                     </Button>
                                 </Link>
+                                <Button className="w-full mt-4 bg-purple-700 hover:bg-purple-800 dark:hover:bg-purple-950 dark:bg-purple-800 text-white">
+                                    <Github className="mr-2 h-4 w-4" /> Refetch Your Current Github Details
+                                </Button>
                             </CardContent>
                         </Card>
 
                         {/* Main Content */}
                         <div className="md:col-span-2 space-y-6">
                             {/* Projects */}
-                            <Card className="bg-white/50 dark:bg-gray-800/50 backdrop-blur-lg">
-                                <CardHeader>
-                                    <CardTitle className="text-xl font-bold text-gray-800 dark:text-white">Projects</CardTitle>
-                                </CardHeader>
-                                <CardContent>
-                                    <ScrollArea className="w-full whitespace-nowrap rounded-md">
-                                        <div className="flex w-max space-x-4 p-4">
-                                            {repos.map((repo) => (
-                                                <Card key={repo.url} className="w-[250px] shrink-0 bg-white dark:bg-gray-700">
-                                                    <CardHeader>
-                                                        <CardTitle className="text-base text-gray-800 dark:text-white">{repo.name}</CardTitle>
-                                                        <CardDescription className="text-gray-600 dark:text-gray-300">{repo.description}</CardDescription>
-                                                    </CardHeader>
-                                                    <CardContent>
-
-
-                                                        {repo.languages.map((lang) => (
-                                                            <Badge key={lang} variant="secondary" className="bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-100">
-                                                                {lang}
-                                                            </Badge>
-                                                        ))}
-                                                    </CardContent>
-                                                </Card>
-                                            ))}
-                                        </div>
-                                        <ScrollBar orientation="horizontal" />
-                                    </ScrollArea>
-                                </CardContent>
-                            </Card>
-                            {/*        DIFF     */}
                             <Card className="bg-white/50 dark:bg-gray-800/50 backdrop-blur-lg">
                                 <CardHeader>
                                     <CardTitle className="text-2xl font-bold text-gray-800 dark:text-white">Projects</CardTitle>
@@ -140,13 +118,13 @@ export default async function UserProfile() {
                             </Card>
 
                             {/* Languages */}
-                            {/* <Card className="bg-white/50 dark:bg-gray-800/50 backdrop-blur-lg">
+                            <Card className="bg-white/50 dark:bg-gray-800/50 backdrop-blur-lg">
                                 <CardHeader>
                                     <CardTitle className="text-xl font-bold text-gray-800 dark:text-white">Languages</CardTitle>
                                 </CardHeader>
                                 <CardContent>
                                     <div className="space-y-4">
-                                        {user.languages.map((language) => (
+                                        {languageUsage.map((language) => (
                                             <div key={language.name} className="space-y-1">
                                                 <div className="flex justify-between text-sm text-gray-600 dark:text-gray-300">
                                                     <span>{language.name}</span>
@@ -157,12 +135,13 @@ export default async function UserProfile() {
                                                         className={`${language.color} rounded-full h-2 transition-all duration-500 ease-in-out`}
                                                         style={{ width: `${language.percentage}%` }}
                                                     />
+
                                                 </div>
                                             </div>
                                         ))}
                                     </div>
                                 </CardContent>
-                            </Card> */}
+                            </Card>
 
                             {/* Potential Matches */}
                             {/* <Card className="bg-white/50 dark:bg-gray-800/50 backdrop-blur-lg">
