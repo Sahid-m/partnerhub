@@ -1,36 +1,39 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# PartnerHub: Find Your Perfect Coding Partner
 
-## Getting Started
+Welcome to **PartnerHub**, an innovative platform designed to help developers find coding partners for hackathons, side projects, and open-source collaborations. PartnerHub leverages GitHub integration to analyze your contributions, generate a personalized rating, and match you with like-minded developers based on your skills and project preferences.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Why Use PartnerHub?
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+As someone who has participated in various hackathons, I often struggled to find reliable teammates. Some had little to no real coding skills, while others would leave at the last second, even after claiming they knew what they were doing. This platform is designed to solve these problems by providing **proof of work** through GitHub integration. You can view a potential partner’s actual contributions, ensuring that they are the right fit for your team.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Features:
 
-## Learn More
+- **GitHub Login & Analysis**:  
+  Easily log in using your GitHub account. PartnerHub fetches and analyzes your repositories to assess coding skills, frequency of contributions, and project involvement.
 
-To learn more about Next.js, take a look at the following resources:
+- **Personalized Skill Ratings**:  
+  Your GitHub contributions are analyzed to provide a rating based on your strengths and areas for improvement, helping you showcase your skill set.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Project Ideas Hub**:  
+  Explore or submit project ideas, join exciting challenges, or propose innovative projects with other developers.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- **Find Your Perfect Coding Partner**:  
+  Match with other developers based on complementary skills, coding habits, and project interests.
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Work In Progress:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+While PartnerHub is functional, the following features are still under development due to time constraints:
+
+- **Real-Time Chat**:  
+  Soon, you'll be able to communicate with your coding partner directly on the platform.
+
+- **Advanced Matching Algorithm**:  
+  We're working on a more advanced matching algorithm to improve partner recommendations based on your coding style and project history.
+
+---
